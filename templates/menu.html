@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Operaciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Incluye aquí el CSS proporcionado anteriormente */
+    </style>
+</head>
+<body>
+    <div class="container" id="menu-container">
+        <h1>Menú de Operaciones</h1>
+        <form method="POST">
+            <div class="buttons">
+                <button class="menu-button" name="consultar" type="submit">Consultar Saldo</button>
+                <button class="menu-button" name="depositar" type="submit">Depositar Dinero</button>
+                <button class="menu-button" name="retirar" type="submit">Retirar Dinero</button>
+                <button class="menu-button" type="submit" formaction="{{ url_for('login') }}">Salir</button>
+            </div>
+            <input type="number" name="cantidad" placeholder="Cantidad">
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="message">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <script>
+        // Espera 3 segundos y luego muestra el contenedor
+        window.onload = () => {
+            setTimeout(() => {
+                document.getElementById('menu-container').classList.add('show');
+            }, 1000); // 3000 milisegundos = 3 segundos
+        }
+    </script>
+</body>
+</html>

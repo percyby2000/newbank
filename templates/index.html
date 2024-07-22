@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajero Automático</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Agrega aquí el CSS que has proporcionado anteriormente */
+    </style>
+</head>
+<body>
+    <!-- Pantalla de introducción -->
+    <div class="intro-container">
+        <img src="{{ url_for('static', filename='imagenes/Logo.png') }}" alt="Logo" class="logo">
+        <div class="text-animation">PeruBank</div>
+    </div>
+
+    <!-- Contenedor del formulario -->
+    <div class="container" id="login-container">
+        <h1>Bienvenido</h1>
+        <form method="POST">
+            <input type="text" name="numero_tarjeta" placeholder="Número de tarjeta" required>
+            <input type="password" name="contraseña" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="message">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <script>
+        // Transición después de la animación de texto
+        window.onload = () => {
+            setTimeout(() => {
+                document.querySelector('.intro-container').style.opacity = '0'; // Desaparece el contenedor de introducción
+                setTimeout(() => {
+                    document.querySelector('.intro-container').style.display = 'none'; // Oculta el contenedor de introducción
+                    document.getElementById('login-container').style.opacity = '1'; // Muestra el contenedor del formulario
+                }, 500); // Duración de la transición CSS
+            }, 3000); // Duración de la animación de texto
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+/* Estilo base para el cuerpo */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f7f7f7, #f40303);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Contenedores para el formulario y la pantalla de introducción */
+.container, .intro-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 360px;
+    text-align: center;
+    position: absolute;
+    transition: opacity 0.5s ease;
+}
+
+
+
+/* Contenedor de introducción a pantalla completa */
+/* Estilo inicial del contenedor */
+.container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 360px;
+    text-align: center;
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 1s ease; /* Transición suave para la opacidad */
+}
+
+/* Clase para mostrar el contenedor */
+.container.show {
+    opacity: 1;
+}
+
+
+/* Estilo para el logo */
+.logo {
+    width: 400px;
+    margin-bottom: 15px;
+}
+
+/* Estilo para el título */
+h1 {
+    font-size: 40px;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* Animación de texto para el título */
+.text-animation {
+    font-size: 36px;
+    font-weight: 800;
+    margin: 0;
+    color: #ff0000;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid #09346d;
+    animation: typing 2.5s steps(40, end), blink .75s step-end infinite;
+}
+
+/* Animación de tipeo */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* Animación de parpadeo del cursor */
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: #0618db }
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"], input[type="password"], input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+/* Estilo al enfocar los campos de entrada */
+input[type="text"]:focus, input[type="password"]:focus, input[type="number"]:focus {
+    border-color: #ff0000;
+    outline: none;
+}
+
+/* Estilo para el botón de envío */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Estilo del botón en hover */
+button:hover {
+    background-color: #500404;
+    transform: translateY(-2px);
+}
+
+/* Estilo del botón cuando está activo */
+button:active {
+    background-color: #80001e;
+    transform: translateY(0);
+}
+
+/* Estilo para los mensajes */
+.message {
+    margin-top: 20px;
+    color: #ff4d4d;
+    font-size: 14px;
+}
+
+/* Estilo para los botones en el formulario */
+.menu-button {
+    width: 48%;
+    display: inline-block;
+    margin: 1%;
+}
+
+/* Estilo para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo para los campos de número dentro del formulario */
+form input[type="number"] {
+    flex: 1;
+    margin: 10px 1%;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .container, .intro-container {
+        width: 90%;
+    }
+
+    .menu-button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
